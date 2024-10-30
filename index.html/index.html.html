@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Blooming Rose Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #001d3d; /* Dark night sky */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Stars styling */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        /* Randomly placed stars */
+        .star:nth-child(1) { top: 5%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+        .star:nth-child(2) { top: 15%; left: 50%; width: 3px; height: 3px; animation-delay: 0.3s; }
+        .star:nth-child(3) { top: 25%; left: 80%; width: 1px; height: 1px; animation-delay: 0.5s; }
+        .star:nth-child(4) { top: 35%; left: 30%; width: 2px; height: 2px; animation-delay: 0.7s; }
+        .star:nth-child(5) { top: 45%; left: 70%; width: 2px; height: 2px; animation-delay: 0.9s; }
+        .star:nth-child(6) { top: 55%; left: 10%; width: 3px; height: 3px; animation-delay: 1.1s; }
+        .star:nth-child(7) { top: 65%; left: 40%; width: 1.5px; height: 1.5px; animation-delay: 1.3s; }
+        .star:nth-child(8) { top: 75%; left: 90%; width: 2.5px; height: 2.5px; animation-delay: 1.5s; }
+        .star:nth-child(9) { top: 85%; left: 60%; width: 2px; height: 2px; animation-delay: 1.7s; }
+        .star:nth-child(10) { top: 95%; left: 40%; width: 1px; height: 1px; animation-delay: 1.9s; }
+
+        /* Rose */
+        .rose {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 90px;
+            animation: sway 3s infinite alternate;
+        }
+
+        /* Petals */
+        .petal {
+            position: absolute;
+            width: 40px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 20%, #e63946, #a40824);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Arrange petals */
+        .petal:nth-child(1) { top: 0; left: 50%; transform: translate(-50%, 0) rotate(0deg); }
+        .petal:nth-child(2) { top: 10px; left: 0; transform: translate(0, 0) rotate(-45deg); }
+        .petal:nth-child(3) { top: 10px; left: 100%; transform: translate(-100%, 0) rotate(45deg); }
+        .petal:nth-child(4) { top: 30px; left: 25%; transform: translate(-50%, 0) rotate(90deg); }
+        .petal:nth-child(5) { top: 30px; left: 75%; transform: translate(-50%, 0) rotate(-90deg); }
+
+        /* Center of rose */
+        .center {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, #ffb703, #b95b0a);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Stem */
+        .stem {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 6px;
+            height: 70px;
+            background-color: #006400; /* Dark green stem */
+            transform: translateX(-50%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Leaves */
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: radial-gradient(circle, #228b22, #004b00);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Leaf positions */
+        .leaf:nth-child(6) {
+            bottom: 35px;
+            left: 40%;
+            transform: rotate(-30deg);
+        }
+
+        .leaf:nth-child(7) {
+            bottom: 35px;
+            left: 60%;
+            transform: rotate(30deg);
+        }
+
+        /* Text in the sky */
+        .message {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #ffb703;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: float 3s infinite alternate;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateX(-50%) translateY(0); }
+            100% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @keyframes sway {
+            0% { transform: translate(-50%, 0) rotate(0deg); }
+            100% { transform: translate(-50%, 0) rotate(2deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <!-- Rose -->
+    <div class="rose">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="center"></div>
+        <div class="stem"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+
+    <!-- Message in the sky -->
+    <div class="message">I love you Saanvi</div>
+</body>
+</html>
